@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candle : MonoBehaviour
+public class CandleDiff : MonoBehaviour
 {
     public List<Collider2D> objects;
+    public List<Collider2D> prevObjects;
     public GameObject[] savedObjects;
     private Light light;
     private float effectRadius;
@@ -14,6 +15,7 @@ public class Candle : MonoBehaviour
     private void Awake()
     {
         savedObjects = new GameObject[0];
+        prevObjects = new List<Collider2D>();
     }
 
     // Start is called before the first frame update
@@ -44,7 +46,7 @@ public class Candle : MonoBehaviour
                 }
             }
 
-            if (!exists)
+            if (exists)
             {
                 savedObjects[i].GetComponent<SpriteRenderer>().enabled = !savedObjects[i].GetComponent<SpriteRenderer>().enabled;
                 savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = !savedObjects[i].GetComponent<BoxCollider2D>().isTrigger;
@@ -57,9 +59,13 @@ public class Candle : MonoBehaviour
             for (int i = 0; i < objects.Count; i++)
             {
                 savedObjects[i] = objects[i].gameObject;
-                savedObjects[i].GetComponent<SpriteRenderer>().enabled = true;
-                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = false;
+                if (prevObjects.Contains(objects[i]))
+                    continue;
+                savedObjects[i].GetComponent<SpriteRenderer>().enabled = !savedObjects[i].GetComponent<SpriteRenderer>().enabled;
+                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = !savedObjects[i].GetComponent<BoxCollider2D>().isTrigger;
             }
         }
+
+        prevObjects = objects;
     }
 }
