@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 /// Attach this script to the canvas that contains the button you want to do scene management with.
 /// Go into said button, and under the light grey "OnClick ()" panel, click the little plus in the lower right.
 /// Now drag the canvas the button is attached to into the slot that appears.
+/// Finally, click the dropdown that says "No Function" and mouse over "MenuLoader," then choose the function you want to happen when the button is clicked.
 /// </summary>
 public class MenuLoader : MonoBehaviour
 {
