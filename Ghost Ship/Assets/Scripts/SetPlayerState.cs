@@ -143,7 +143,6 @@ public class SetPlayerState : MonoBehaviour
             }
 
             //set player state to lantern
-            //previousState = currentState;
             currentState = PlayerState.Lantern;
         }
     }
