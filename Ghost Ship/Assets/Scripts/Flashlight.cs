@@ -7,7 +7,7 @@ public class Flashlight : MonoBehaviour
     private List<Collider2D> objectsOverlapping;
     private GameObject[] savedObjects;
     private Light light;
-    private float effectRadius;
+    public float effectRadius;
     private int layerMask;
     private bool prevState;
 
@@ -15,7 +15,6 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         light = GetComponent<Light>();
-        effectRadius = light.range / 2;
         layerMask = LayerMask.GetMask("Interactable");
 
         savedObjects = new GameObject[0];
