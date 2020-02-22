@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum PlayerState
 {
-    None,
-    Candle,
-    Lantern
+    None = 0,
+    Candle = 1,
+    Lantern = 2
 }
 
 public class SetPlayerState : MonoBehaviour
@@ -33,11 +33,20 @@ public class SetPlayerState : MonoBehaviour
     //interaction distance threshold
     public float interactDistance;
 
+    private Animator anim;
+
+    private Light thisFlashlight;
+
     // Start is called before the first frame update
     void Start()
     {
         //initialize current state as none
         currentState = PlayerState.None;
+
+        itemSpawner = GameObject.Find("ItemSpawner").transform;
+        worldLantern = GameObject.Find("WorldLantern");
+        anim = GetComponent<Animator>();
+        thisFlashlight = GetComponentInChildren<Light>(true);
     }
 
     // Update is called once per frame
@@ -51,7 +60,7 @@ public class SetPlayerState : MonoBehaviour
                 //swap to regular sprites and animations
                 if (previousState != PlayerState.None)
                 {
-
+                    anim.SetInteger("Equipment", (int)currentState);
                 }
 
                 //pick up a candle if it's close enough to the player and they press the interact button
@@ -77,7 +86,7 @@ public class SetPlayerState : MonoBehaviour
                 //swap to candle-holding sprites and animations
                 if(previousState != PlayerState.Candle)
                 {
-
+                    anim.SetInteger("Equipment", (int)currentState);
                 }
 
                 //drop the candle if the player presses the interact button
@@ -97,7 +106,16 @@ public class SetPlayerState : MonoBehaviour
                 //TODO: swap to lantern sprites if the previous state wasn't lantern
                 if(previousState != PlayerState.Lantern)
                 {
+                    anim.SetInteger("Equipment", (int)currentState);
+                }
 
+                if (thisFlashlight.enabled && !anim.GetBool("LanternOn"))
+                {
+                    anim.SetBool("LanternOn", true);
+                }
+                else if(!thisFlashlight.enabled && anim.GetBool("LanternOn"))
+                {
+                    anim.SetBool("LanternOn", false);
                 }
 
                 break;
