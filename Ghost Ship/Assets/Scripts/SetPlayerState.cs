@@ -92,7 +92,6 @@ public class SetPlayerState : MonoBehaviour
                 if(Input.GetMouseButtonDown(0))
                 {
                     //change player state
-                    //previousState = currentState;
                     currentState = PlayerState.None;
                     anim.SetInteger("Equipment", (int)currentState);
                     DropCandle();
@@ -102,7 +101,7 @@ public class SetPlayerState : MonoBehaviour
                 ;
             case PlayerState.Lantern:
 
-                //TODO: swap to lantern sprites if the previous state wasn't lantern
+                //swap to lantern sprites if the previous state wasn't lantern
                 if(previousState != PlayerState.Lantern)
                 {
                     anim.SetInteger("Equipment", (int)currentState);
