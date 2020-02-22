@@ -69,9 +69,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2896309093625747608}
+  - component: {fileID: -3624235797942163806}
   - component: {fileID: 2896309093625747609}
   - component: {fileID: 2896309093625747610}
   - component: {fileID: 2896309093625747611}
+  - component: {fileID: -4441245254582104654}
   - component: {fileID: 2896309093625747612}
   - component: {fileID: 2896309093625747613}
   m_Layer: 0
@@ -100,6 +102,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &-3624235797942163806
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896309093625747614}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 85cc7e704d34c184ebc5dc353713c1ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &2896309093625747609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -138,7 +159,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc75db537b9efa54882a32868233af1f, type: 3}
+  m_Sprite: {fileID: 7939197079161234552, guid: 66fa35373a678604e814cf33bbdbc419,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,6 +218,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4441245254582104654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896309093625747614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5378a0eafa49acb4b87a7681898f2b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldLantern: {fileID: 0}
+  candleList: []
+  itemSpawner: {fileID: 0}
+  interactDistance: 0
 --- !u!114 &2896309093625747612
 MonoBehaviour:
   m_ObjectHideFlags: 0
