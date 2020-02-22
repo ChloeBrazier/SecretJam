@@ -77,25 +77,19 @@ public class SetPlayerState : MonoBehaviour
 
                         //set player state to candle state
                         currentState = PlayerState.Candle;
+                        anim.SetInteger("Equipment", (int)currentState);
                     }
                 }
 
                 break;
             case PlayerState.Candle:
-
-                //swap to candle-holding sprites and animations
-                if(previousState != PlayerState.Candle)
-                {
-                    anim.SetInteger("Equipment", (int)currentState);
-                }
-
                 //drop the candle if the player presses the interact button
                 if(Input.GetMouseButtonDown(0))
                 {
                     //change player state
                     //previousState = currentState;
                     currentState = PlayerState.None;
-
+                    anim.SetInteger("Equipment", (int)currentState);
                     DropCandle();
                 }
 
