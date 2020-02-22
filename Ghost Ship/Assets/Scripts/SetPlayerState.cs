@@ -23,9 +23,8 @@ public class SetPlayerState : MonoBehaviour
     [SerializeField]
     private List<GameObject> candleList;
 
-    //candle prefab
-    [SerializeField]
-    private GameObject candlePrefab;
+    //held candle
+    private GameObject heldCandle;
 
     //item spawner transform
     [SerializeField]
@@ -60,8 +59,9 @@ public class SetPlayerState : MonoBehaviour
                 {
                     if(Input.GetMouseButtonDown(0) && Vector3.Distance(transform.position, candle.transform.position) < interactDistance)
                     {
-                        //destroy the candle after removing it from the list
-                        Destroy(candle);
+                        //deactivate the candle and set it as the held candle
+                        heldCandle = candle;
+                        heldCandle.SetActive(false);
 
                         //activate player candle
                         GetComponentInChildren<Candle>(true).gameObject.SetActive(true);
@@ -87,13 +87,7 @@ public class SetPlayerState : MonoBehaviour
                     //previousState = currentState;
                     currentState = PlayerState.None;
 
-                    //deactivate player candle
-                    GetComponentInChildren<Candle>().gameObject.SetActive(false);
-
-                    //spawn a candle in front of the player and at it to the candle list
-                    GameObject newCandle = Instantiate(candlePrefab, itemSpawner);
-                    newCandle.transform.SetParent(null);
-                    candleList.Add(newCandle);
+                    DropCandle();
                 }
 
                 break;
@@ -125,9 +119,25 @@ public class SetPlayerState : MonoBehaviour
             //activate player lantern
             GetComponentInChildren<Flashlight>(true).gameObject.SetActive(true);
 
+            //deactivate player candle if it's active
+            if(currentState == PlayerState.Candle)
+            {
+                DropCandle();
+            }
+
             //set player state to lantern
             //previousState = currentState;
             currentState = PlayerState.Lantern;
         }
+    }
+
+    private void DropCandle()
+    {
+        //deactivate player candle
+        GetComponentInChildren<Candle>().gameObject.SetActive(false);
+
+        //activate held candle in front of the player and at it to the candle list
+        heldCandle.transform.position = itemSpawner.position;
+        heldCandle.SetActive(true);
     }
 }

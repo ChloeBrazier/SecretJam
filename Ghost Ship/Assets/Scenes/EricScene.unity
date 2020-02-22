@@ -309,6 +309,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5311333421258189114, guid: c438605258f5633419015904eccc1e46,
+        type: 3}
+      propertyPath: m_Range
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5311333421258189115, guid: c438605258f5633419015904eccc1e46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -827,7 +832,7 @@ MonoBehaviour:
   candlePrefab: {fileID: 5311333421258189116, guid: c438605258f5633419015904eccc1e46,
     type: 3}
   itemSpawner: {fileID: 1628587039}
-  interactDistance: 0.5
+  interactDistance: 1.5
 --- !u!1001 &1638022460
 PrefabInstance:
   m_ObjectHideFlags: 0
