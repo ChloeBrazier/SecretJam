@@ -7,7 +7,7 @@ using UnityEngine;
 public class LightSwitch : MonoBehaviour
 {
     //modifiable list of objects affected by this light
-    [SerializeField]
+    [SerializeField,Tooltip("Any object affected by the lights MUST HAVE A BOX COLLIDER")]
     private List<GameObject> affectedObjects;
 
     //light timer
