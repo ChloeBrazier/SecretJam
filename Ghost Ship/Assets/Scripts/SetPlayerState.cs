@@ -19,9 +19,10 @@ public class SetPlayerState : MonoBehaviour
     [SerializeField]
     private GameObject worldLantern;
 
-    //list of candles in the level
+    //list of candles in the level and their original positions
     [SerializeField]
     private List<GameObject> candleList;
+    private List<Vector3> candleLocations;
 
     //held candle
     private GameObject heldCandle;
@@ -47,12 +48,19 @@ public class SetPlayerState : MonoBehaviour
         worldLantern = GameObject.Find("WorldLantern");
         anim = GetComponent<Animator>();
         thisFlashlight = GetComponentInChildren<Light>(true);
+
+        //save original candle positions
+        candleLocations = new List<Vector3>();
+        foreach(GameObject candle in candleList)
+        {
+            Vector3 tempTransform = candle.transform.position;
+            candleLocations.Add(tempTransform);
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //TODO: swap out player sprites and animations
         //check player state and switch active sprites and player
         switch (currentState)
         {
@@ -119,6 +127,25 @@ public class SetPlayerState : MonoBehaviour
 
                 break;
                 ;
+        }
+
+        //check for candle reset
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            //drop a candle if the player is holding one
+            if(currentState == PlayerState.Candle)
+            {
+                currentState = PlayerState.None;
+                anim.SetInteger("Equipment", (int)currentState);
+                DropCandle();
+            }
+
+            for(int i = 0; i < candleList.Count; i++)
+            {
+                candleList[i].transform.position = candleLocations[i];
+                Debug.Log("new candle location: " + candleList[i].transform.position);
+                Debug.Log("candlle location listing: " + candleLocations[i]);
+            }
         }
 
         //set previous state to current state
