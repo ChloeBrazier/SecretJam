@@ -1057,6 +1057,11 @@ PrefabInstance:
       propertyPath: affectedObjects.Array.data[1]
       value: 
       objectReference: {fileID: 1500651989}
+    - target: {fileID: 4339985552934846944, guid: 6311f855f790eca498ee95dd60bcd17e,
+        type: 3}
+      propertyPath: fadeTimer
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4339985552934846946, guid: 6311f855f790eca498ee95dd60bcd17e,
         type: 3}
       propertyPath: m_LocalPosition.x

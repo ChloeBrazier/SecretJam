@@ -11,9 +11,11 @@ public class Candle : MonoBehaviour
     private int layerMask;
     private bool prevState;
 
+    private FindInteractables interactablesContainer;
+
     private void Awake()
     {
-        savedObjects = new GameObject[0];
+        savedObjects = new GameObject[0];   
     }
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class Candle : MonoBehaviour
         light = GetComponent<Light>();
         effectRadius = light.range / 2;
         layerMask = LayerMask.GetMask("Interactable");
+        interactablesContainer = GameObject.Find("Player").GetComponent<FindInteractables>();
 
         prevState = true;
     }
@@ -44,10 +47,10 @@ public class Candle : MonoBehaviour
                 }
             }
 
-            if (!exists)
+            if (!exists && interactablesContainer.defaultVals.ContainsKey(savedObjects[i].name))
             {
-                savedObjects[i].GetComponent<SpriteRenderer>().enabled = !savedObjects[i].GetComponent<SpriteRenderer>().enabled;
-                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = !savedObjects[i].GetComponent<BoxCollider2D>().isTrigger;
+                savedObjects[i].GetComponent<SpriteRenderer>().enabled = interactablesContainer.defaultVals[savedObjects[i].name].sprite;
+                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = interactablesContainer.defaultVals[savedObjects[i].name].trigger;
             }
         }
 
@@ -57,8 +60,10 @@ public class Candle : MonoBehaviour
             for (int i = 0; i < objects.Count; i++)
             {
                 savedObjects[i] = objects[i].gameObject;
-                savedObjects[i].GetComponent<SpriteRenderer>().enabled = true;
-                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = false;
+                if (!interactablesContainer.defaultVals.ContainsKey(savedObjects[i].name))
+                    continue;
+                savedObjects[i].GetComponent<SpriteRenderer>().enabled = !interactablesContainer.defaultVals[savedObjects[i].name].sprite;
+                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = !interactablesContainer.defaultVals[savedObjects[i].name].trigger;
             }
         }
     }

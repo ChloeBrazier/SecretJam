@@ -10,6 +10,9 @@ public class LightSwitch : MonoBehaviour
     [SerializeField,Tooltip("Any object affected by the lights MUST HAVE A BOX COLLIDER")]
     private List<GameObject> affectedObjects;
 
+    //bool for objects being changed
+    private bool objectsChanged;
+
     //light timer
     [SerializeField]
     private float lightTimer;
@@ -20,13 +23,29 @@ public class LightSwitch : MonoBehaviour
     private float shadowTimer;
     private float shadowTick = 0;
 
+    //fade timer
+    [SerializeField]
+    private float fadeTimer;
+    private float fadeTick = 0;
+
+    //the light attached to this object
+    private Light objectlight;
+
     //light bool
     private bool lightOn = true;
+
+    //max light intensity
+    private float maxIntensity;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        //get object light
+        objectlight = GetComponent<Light>();
 
+        //get max intensity
+        maxIntensity = objectlight.intensity;
     }
 
     // Update is called once per frame
@@ -42,11 +61,22 @@ public class LightSwitch : MonoBehaviour
             }
             else
             {
-                //change light bool and reset light tick
-                lightOn = false;
-                GetComponent<Light>().enabled = false;
+                //Lerp light intensity
+                if(fadeTick <= 1)
+                {
+                    objectlight.intensity = Mathf.Lerp(objectlight.intensity, 0f, fadeTick);
 
-                lightTick = 0f;
+                    //increment fade tick
+                    fadeTick += Time.deltaTime / fadeTimer;
+                }
+                else
+                {
+                    //change light bool and reset light tick
+                    lightOn = false;
+
+                    lightTick = 0f;
+                    fadeTick = 0f;
+                }
             }
         }
         else
@@ -60,25 +90,42 @@ public class LightSwitch : MonoBehaviour
             else
             {
                 //change active objects
-                foreach(GameObject platform in affectedObjects)
+                if(objectsChanged == false)
                 {
-                    if(platform.GetComponent<SpriteRenderer>().enabled == true)
+                    foreach (GameObject platform in affectedObjects)
                     {
-                        platform.GetComponent<SpriteRenderer>().enabled = false;
-                        platform.GetComponent<BoxCollider2D>().isTrigger = true;
+                        if (platform.GetComponent<SpriteRenderer>().enabled == true)
+                        {
+                            platform.GetComponent<SpriteRenderer>().enabled = false;
+                            platform.GetComponent<BoxCollider2D>().isTrigger = true;
+                        }
+                        else
+                        {
+                            platform.GetComponent<SpriteRenderer>().enabled = true;
+                            platform.GetComponent<BoxCollider2D>().isTrigger = false;
+                        }
                     }
-                    else
-                    {
-                        platform.GetComponent<SpriteRenderer>().enabled = true;
-                        platform.GetComponent<BoxCollider2D>().isTrigger = false;
-                    }
+
+                    objectsChanged = true;
                 }
+                
 
-                //reset light bool and shadow tick
-                lightOn = true;
-                GetComponent<Light>().enabled = true;
+                //lerp light intensity to max intensity
+                if (fadeTick <= 1)
+                {
+                    objectlight.intensity = Mathf.Lerp(objectlight.intensity, maxIntensity, fadeTick);
 
-                shadowTick = 0f;
+                    //increment fade tick
+                    fadeTick += Time.deltaTime / fadeTimer;
+                }
+                else
+                {
+                    //reset light
+                    lightOn = true;
+                    objectsChanged = false;
+                    shadowTick = 0f;
+                    fadeTick = 0f;
+                }
             }
         }
     }
