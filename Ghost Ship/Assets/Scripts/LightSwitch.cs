@@ -26,7 +26,8 @@ public class LightSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //get shadow radius of light
+        Debug.Log(GetComponent<Light>().shadowRadius);
     }
 
     // Update is called once per frame
