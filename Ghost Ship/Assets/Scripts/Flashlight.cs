@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    private Collider[] objects;
+    private Collider2D[] objects;
     private GameObject[] savedObjects;
     private Light light;
     private float effectRadius;
@@ -19,7 +19,7 @@ public class Flashlight : MonoBehaviour
         layerMask = LayerMask.GetMask("Interactable");
 
         savedObjects = new GameObject[0];
-        objects = new Collider[0];
+        objects = new Collider2D[0];
 
         prevState = true;
     }
@@ -27,8 +27,13 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        objects = Physics.OverlapSphere(transform.position, effectRadius, layerMask);
-        if (light.enabled && prevState)
+        if (Input.GetMouseButtonDown(0))
+        {
+            light.enabled = !light.enabled;
+        }
+
+        objects = Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask);
+        if (light.enabled && !prevState)
         {
             for (int i = 0; i < savedObjects.Length; i++)
             {
@@ -41,5 +46,7 @@ public class Flashlight : MonoBehaviour
                 objects[i].gameObject.SetActive(false);
             }
         }
+
+        prevState = light.enabled;
     }
 }
