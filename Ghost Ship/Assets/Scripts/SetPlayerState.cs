@@ -11,17 +11,33 @@ public enum PlayerState
 
 public class SetPlayerState : MonoBehaviour
 {
-    //the player's current state
+    //the player's current and previous states
     private PlayerState currentState;
+    private PlayerState previousState;
 
-    //the lantern
+    //the lantern in the level
     [SerializeField]
-    private GameObject lantern;
+    private GameObject worldLantern;
+
+    //list of candles in the level
+    [SerializeField]
+    private List<GameObject> candleList;
+
+    //candle prefab
+    [SerializeField]
+    private GameObject candlePrefab;
+
+    //item spawner transform
+    [SerializeField]
+    private Transform itemSpawner;
+
+    //interaction distance threshold
+    public float interactDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        //initialize current start as none
+        //initialize current state as none
         currentState = PlayerState.None;
     }
 
@@ -33,36 +49,85 @@ public class SetPlayerState : MonoBehaviour
         switch (currentState)
         {
             case PlayerState.None:
+                //swap to regular sprites and animations
+                if (previousState != PlayerState.None)
+                {
 
-                //pick up a candle if it's close enough to the player
+                }
+
+                //pick up a candle if it's close enough to the player and they press the interact button
+                foreach(GameObject candle in candleList)
+                {
+                    if(Input.GetMouseButtonDown(0) && Vector3.Distance(transform.position, candle.transform.position) < interactDistance)
+                    {
+                        //destroy the candle after removing it from the list
+                        Destroy(candle);
+
+                        //activate player candle
+                        GetComponentInChildren<Candle>(true).gameObject.SetActive(true);
+
+                        //set player state to candle state
+                        currentState = PlayerState.Candle;
+                    }
+                }
 
                 break;
             case PlayerState.Candle:
 
                 //swap to candle-holding sprites and animations
+                if(previousState != PlayerState.Candle)
+                {
+
+                }
 
                 //drop the candle if the player presses the interact button
+                if(Input.GetMouseButtonDown(0))
+                {
+                    //change player state
+                    //previousState = currentState;
+                    currentState = PlayerState.None;
 
+                    //deactivate player candle
+                    GetComponentInChildren<Candle>().gameObject.SetActive(false);
+
+                    //spawn a candle in front of the player and at it to the candle list
+                    GameObject newCandle = Instantiate(candlePrefab, itemSpawner);
+                    newCandle.transform.SetParent(null);
+                    candleList.Add(newCandle);
+                }
 
                 break;
                 ;
             case PlayerState.Lantern:
+
+                //TODO: swap to lantern sprites if the previous state wasn't lantern
+                if(previousState != PlayerState.Lantern)
+                {
+
+                }
+
                 break;
                 ;
         }
 
+        //set previous state to current state
+        previousState = currentState;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //permanently pick up the lantern if the player collides with it
-        if(collision.gameObject == lantern)
+        if(collision.gameObject == worldLantern)
         {
             //remove lantern object from the scene
-            Destroy(lantern);
+            Destroy(worldLantern);
+
+            //activate player lantern
+            GetComponentInChildren<Flashlight>(true).gameObject.SetActive(true);
 
             //set player state to lantern
-
+            //previousState = currentState;
+            currentState = PlayerState.Lantern;
         }
     }
 }
