@@ -872,6 +872,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5690079641623526746, guid: cefd478f4706bd24f91f725d221af237,
+        type: 3}
+      propertyPath: effectRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5690079641623526748, guid: cefd478f4706bd24f91f725d221af237,
         type: 3}
       propertyPath: m_RootOrder
@@ -880,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 5690079641623526751, guid: cefd478f4706bd24f91f725d221af237,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cefd478f4706bd24f91f725d221af237, type: 3}
