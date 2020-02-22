@@ -79,6 +79,7 @@ public class SetPlayerState : MonoBehaviour
 
                         playerCandle.objects = liftedCandle.objects;
                         playerCandle.savedObjects = liftedCandle.savedObjects;
+                        // Candle_diff functionality ----- ------ playerCandle.prevObjects = liftedCandle.prevObjects;
 
                         //set player state to candle state
                         currentState = PlayerState.Candle;
@@ -155,6 +156,7 @@ public class SetPlayerState : MonoBehaviour
         //activate held candle in front of the player and at it to the candle list
         heldCandle.GetComponent<Candle>().objects = playerCandle.objects;
         heldCandle.GetComponent<Candle>().savedObjects = playerCandle.savedObjects;
+        // Candle_diff functionality ----- ------ heldCandle.GetComponent<Candle>().prevObjects = playerCandle.prevObjects;
         heldCandle.transform.position = itemSpawner.position;
         heldCandle.SetActive(true);
     }
