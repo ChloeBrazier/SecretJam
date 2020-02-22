@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    private Collider2D[] objects_Arr;
+    private List<Collider2D> objectsOverlapping;
     private GameObject[] savedObjects;
     private Light light;
     private float effectRadius;
@@ -19,7 +19,7 @@ public class Flashlight : MonoBehaviour
         layerMask = LayerMask.GetMask("Interactable");
 
         savedObjects = new GameObject[0];
-        objects_Arr = new Collider2D[0];
+        objectsOverlapping = new List<Collider2D>();
 
         prevState = true;
     }
@@ -32,35 +32,37 @@ public class Flashlight : MonoBehaviour
             light.enabled = !light.enabled;
         }
 
-        objects_Arr = Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask);
-        List<Collider2D> objects = new List<Collider2D>();
-        for (int i = 0; i < objects_Arr.Length; i++)
-            objects.Add(objects_Arr[i]);
+        // find all overlapping objects
+        objectsOverlapping.Clear();
+        objectsOverlapping.AddRange(Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask));
 
         if (light.enabled && !prevState)
         {
-            List<int> savedIsSame = new List<int>();
             for (int i = 0; i < savedObjects.Length; i++)
             {
                 savedObjects[i].GetComponent<SpriteRenderer>().enabled = true;
                 savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = false;
 
-                for (int j = 0; j < objects.Count; j++)
+                // Making sure saved objects are not immediately deleted below
+                for (int j = 0; j < objectsOverlapping.Count; j++)
                 {
-                    if (savedObjects[i] == objects[j].gameObject)
+                    if (savedObjects[i] == objectsOverlapping[j].gameObject)
                     {
-                        objects.RemoveAt(j);
+                        // remove any overlapping objects that are being reenabled, 
+                        // so that they are not immediately disabled below
+                        objectsOverlapping.RemoveAt(j);
                         j--;
                     }
                 }
             }
-            savedObjects = new GameObject[objects.Count];
-            for (int i = 0; i < objects.Count; i++)
+            // Saving objects that are newly collided with then disabling them
+            savedObjects = new GameObject[objectsOverlapping.Count];
+            for (int i = 0; i < objectsOverlapping.Count; i++)
             {
-                savedObjects[i] = objects[i].gameObject;
+                savedObjects[i] = objectsOverlapping[i].gameObject;
 
-                objects[i].GetComponent<SpriteRenderer>().enabled = false;
-                objects[i].GetComponent<BoxCollider2D>().isTrigger = true;
+                objectsOverlapping[i].GetComponent<SpriteRenderer>().enabled = false;
+                objectsOverlapping[i].GetComponent<BoxCollider2D>().isTrigger = true;
             }
         }
 
