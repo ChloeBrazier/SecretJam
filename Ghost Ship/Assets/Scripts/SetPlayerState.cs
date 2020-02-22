@@ -70,10 +70,15 @@ public class SetPlayerState : MonoBehaviour
                     {
                         //deactivate the candle and set it as the held candle
                         heldCandle = candle;
+                        Candle liftedCandle = candle.GetComponent<Candle>();
                         heldCandle.SetActive(false);
 
                         //activate player candle
-                        GetComponentInChildren<Candle>(true).gameObject.SetActive(true);
+                        Candle playerCandle = GetComponentInChildren<Candle>(true);
+                        playerCandle.gameObject.SetActive(true);
+
+                        playerCandle.objects = liftedCandle.objects;
+                        playerCandle.savedObjects = liftedCandle.savedObjects;
 
                         //set player state to candle state
                         currentState = PlayerState.Candle;
@@ -146,9 +151,12 @@ public class SetPlayerState : MonoBehaviour
     private void DropCandle()
     {
         //deactivate player candle
-        GetComponentInChildren<Candle>().gameObject.SetActive(false);
+        Candle playerCandle = GetComponentInChildren<Candle>();
+        playerCandle.gameObject.SetActive(false);
 
         //activate held candle in front of the player and at it to the candle list
+        heldCandle.GetComponent<Candle>().objects = playerCandle.objects;
+        heldCandle.GetComponent<Candle>().savedObjects = playerCandle.savedObjects;
         heldCandle.transform.position = itemSpawner.position;
         heldCandle.SetActive(true);
     }
