@@ -26,8 +26,7 @@ public class LightSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //get shadow radius of light
-        Debug.Log(GetComponent<Light>().shadowRadius);
+
     }
 
     // Update is called once per frame
@@ -63,13 +62,15 @@ public class LightSwitch : MonoBehaviour
                 //change active objects
                 foreach(GameObject platform in affectedObjects)
                 {
-                    if(platform.activeSelf == true)
+                    if(platform.GetComponent<SpriteRenderer>().enabled == true)
                     {
-                        platform.SetActive(false);
+                        platform.GetComponent<SpriteRenderer>().enabled = false;
+                        platform.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
                     else
                     {
-                        platform.SetActive(true);
+                        platform.GetComponent<SpriteRenderer>().enabled = true;
+                        platform.GetComponent<BoxCollider2D>().isTrigger = false;
                     }
                 }
 

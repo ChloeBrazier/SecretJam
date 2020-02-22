@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
-    private Collider2D[] objects;
+    private Collider2D[] objects_Arr;
     private GameObject[] savedObjects;
     private Light light;
     private float effectRadius;
@@ -19,7 +19,7 @@ public class Flashlight : MonoBehaviour
         layerMask = LayerMask.GetMask("Interactable");
 
         savedObjects = new GameObject[0];
-        objects = new Collider2D[0];
+        objects_Arr = new Collider2D[0];
 
         prevState = true;
     }
@@ -32,18 +32,35 @@ public class Flashlight : MonoBehaviour
             light.enabled = !light.enabled;
         }
 
-        objects = Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask);
+        objects_Arr = Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask);
+        List<Collider2D> objects = new List<Collider2D>();
+        for (int i = 0; i < objects_Arr.Length; i++)
+            objects.Add(objects_Arr[i]);
+
         if (light.enabled && !prevState)
         {
+            List<int> savedIsSame = new List<int>();
             for (int i = 0; i < savedObjects.Length; i++)
             {
-                savedObjects[i].SetActive(true);
+                savedObjects[i].GetComponent<SpriteRenderer>().enabled = true;
+                savedObjects[i].GetComponent<BoxCollider2D>().isTrigger = false;
+
+                for (int j = 0; j < objects.Count; j++)
+                {
+                    if (savedObjects[i] == objects[j].gameObject)
+                    {
+                        objects.RemoveAt(j);
+                        j--;
+                    }
+                }
             }
-            savedObjects = new GameObject[objects.Length];
-            for (int i = 0; i < objects.Length; i++)
+            savedObjects = new GameObject[objects.Count];
+            for (int i = 0; i < objects.Count; i++)
             {
                 savedObjects[i] = objects[i].gameObject;
-                objects[i].gameObject.SetActive(false);
+
+                objects[i].GetComponent<SpriteRenderer>().enabled = false;
+                objects[i].GetComponent<BoxCollider2D>().isTrigger = true;
             }
         }
 
