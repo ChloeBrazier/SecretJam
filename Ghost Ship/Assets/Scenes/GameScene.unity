@@ -472,8 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedObjects:
   - {fileID: 1439439014}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &13734046
 Light:
@@ -930,8 +930,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &20031885
 Light:
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 27792401}
   - component: {fileID: 27792400}
   m_Layer: 8
-  m_Name: Water (1)
+  m_Name: Water (1) three
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,7 +1430,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (36)
+      value: Water (36) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -2940,7 +2940,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (28)
+      value: Water (28) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -4990,8 +4990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &131627923
 Light:
@@ -9696,7 +9696,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (37)
+      value: Water (37) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -10376,7 +10376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 306722718}
   - component: {fileID: 306722719}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beam (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10813,8 +10813,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &322765520
 Light:
@@ -12403,7 +12403,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (21)
+      value: Water (21) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -16287,7 +16287,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (19)
+      value: Water (19) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -18022,7 +18022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522248516}
   - component: {fileID: 522248517}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beam (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21803,7 +21803,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (20)
+      value: Water (20) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -23444,8 +23444,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &679620849
 Light:
@@ -23876,8 +23876,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &688224171
 Light:
@@ -23970,8 +23970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &688818758
 Light:
@@ -24919,7 +24919,7 @@ GameObject:
   - component: {fileID: 727969790}
   - component: {fileID: 727969789}
   - component: {fileID: 727969791}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25016,8 +25016,8 @@ MonoBehaviour:
   - {fileID: 1402508625}
   - {fileID: 139202292}
   - {fileID: 889370071}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!1 &731406939
 GameObject:
@@ -26068,8 +26068,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &754777824
 Light:
@@ -26235,7 +26235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 764414859}
   - component: {fileID: 764414860}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beam (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26662,7 +26662,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (27)
+      value: Water (27) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -27364,7 +27364,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (22)
+      value: Water (22) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -27751,7 +27751,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (26)
+      value: Water (26) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -28167,8 +28167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &804666144
 Light:
@@ -31553,7 +31553,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (35)
+      value: Water (35) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -32308,8 +32308,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 689623612}
   - {fileID: 1231843665}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &918202181
 Light:
@@ -33482,7 +33482,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (42)
+      value: Water (42) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -34129,7 +34129,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (25)
+      value: Water (25) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -35420,7 +35420,7 @@ GameObject:
   - component: {fileID: 1053678247}
   - component: {fileID: 1053678246}
   m_Layer: 8
-  m_Name: Water (1)
+  m_Name: Water (1) two
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36473,8 +36473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &1079366814
 Light:
@@ -37908,7 +37908,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (34)
+      value: Water (34) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -39331,7 +39331,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (24)
+      value: Water (24) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -40615,7 +40615,7 @@ GameObject:
   - component: {fileID: 1200764972}
   - component: {fileID: 1200764971}
   - component: {fileID: 1200764970}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40636,8 +40636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedObjects:
   - {fileID: 1754596373}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &1200764971
 Light:
@@ -46204,7 +46204,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (31)
+      value: Water (31) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -46886,7 +46886,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water
+      value: Water, two! (jumps)
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -47213,7 +47213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405165548}
   - component: {fileID: 1405165549}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beam (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49382,8 +49382,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &1465075735
 Light:
@@ -51454,8 +51454,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &1537356837
 Light:
@@ -52161,7 +52161,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (33)
+      value: Water (33) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -52704,8 +52704,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &1561894408
 Light:
@@ -53071,7 +53071,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (38)
+      value: Water (38) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -53266,7 +53266,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (41)
+      value: Water (41) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -55091,7 +55091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1650890018}
   - component: {fileID: 1650890019}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beam (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56998,7 +56998,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (29)
+      value: Water (29) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -59180,7 +59180,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (23)
+      value: Water (23) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -60853,8 +60853,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &1819056613
 Light:
@@ -61508,7 +61508,7 @@ GameObject:
   - component: {fileID: 1846480626}
   - component: {fileID: 1846480625}
   - component: {fileID: 1846480624}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61530,8 +61530,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 1825300957}
   - {fileID: 188666032}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &1846480625
 Light:
@@ -63375,8 +63375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedObjects:
   - {fileID: 709484889}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &1881737356
 Light:
@@ -66301,7 +66301,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (30)
+      value: Water (30) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -68655,7 +68655,7 @@ GameObject:
   - component: {fileID: 2044330076}
   - component: {fileID: 2044330075}
   - component: {fileID: 2044330074}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spot Light (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68675,8 +68675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectedObjects: []
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0.5
 --- !u!108 &2044330075
 Light:
@@ -69289,7 +69289,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (32)
+      value: Water (32) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -70196,7 +70196,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (39)
+      value: Water (39) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
@@ -70920,8 +70920,8 @@ MonoBehaviour:
   affectedObjects:
   - {fileID: 172404074}
   - {fileID: 617787878}
-  lightTimer: 5
-  shadowTimer: 1
+  lightTimer: 2
+  shadowTimer: 0.5
   fadeTimer: 0
 --- !u!108 &2120022614
 Light:
@@ -72441,7 +72441,7 @@ PrefabInstance:
     - target: {fileID: 2480929388644022502, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}
       propertyPath: m_Name
-      value: Water (40)
+      value: Water (40) two
       objectReference: {fileID: 0}
     - target: {fileID: 2480929388644022507, guid: 6ec1d33e196193d42876aa06adb023cc,
         type: 3}

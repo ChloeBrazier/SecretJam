@@ -24,7 +24,7 @@ public class FindInteractables : MonoBehaviour
     void Start()
     {
         defaultVals = new Dictionary<string, DefaultVals>();
-        all = GameObject.FindObjectsOfTypeAll(typeof(GameObject));
+        all = Resources.FindObjectsOfTypeAll(typeof(GameObject));
         int layer = 8;
         for (int i = 0; i < all.Length; i++)
         {
