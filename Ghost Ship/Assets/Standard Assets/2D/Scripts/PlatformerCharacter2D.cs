@@ -20,6 +20,11 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
         private Animator m_Anim;
 
+        private AudioSource audioSource;
+        public AudioClip walkSound;
+        public AudioClip jumpSound;
+        public AudioClip lanternSound;
+
         private void Awake()
         {
             // Setting up references.
@@ -27,6 +32,7 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+            audioSource = GetComponent<AudioSource>();
         }
 
 
@@ -96,6 +102,12 @@ namespace UnityStandardAssets._2D
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                audioSource.PlayOneShot(jumpSound);
+            }
+
+            if(m_Grounded && Math.Abs(move) > 0)
+            {
+                audioSource.PlayOneShot(walkSound);
             }
         }
 

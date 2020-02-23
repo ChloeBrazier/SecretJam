@@ -10,6 +10,7 @@ public class Flashlight : MonoBehaviour
     public float effectRadius;
     private int layerMask;
     private bool prevState;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class Flashlight : MonoBehaviour
         objectsOverlapping = new List<Collider2D>();
 
         prevState = true;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class Flashlight : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             light.enabled = !light.enabled;
+            audioSource.Play();
         }
 
         // find all overlapping objects
