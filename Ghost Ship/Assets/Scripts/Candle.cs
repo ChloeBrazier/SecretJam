@@ -12,6 +12,7 @@ public class Candle : MonoBehaviour
     private bool prevState;
 
     private FindInteractables interactablesContainer;
+    private Transform playerTransform;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class Candle : MonoBehaviour
         effectRadius = light.range / 2;
         layerMask = LayerMask.GetMask("Interactable");
         interactablesContainer = GameObject.Find("Player").GetComponent<FindInteractables>();
+        playerTransform = GameObject.Find("Player").transform;
 
         prevState = true;
     }
@@ -32,6 +34,8 @@ public class Candle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, playerTransform.position.z - 0.1f);
+
         objects = new List<Collider2D>();
         objects.AddRange(Physics2D.OverlapCircleAll((Vector2)transform.position, effectRadius, layerMask));
 
