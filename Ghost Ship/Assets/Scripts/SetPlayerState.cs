@@ -92,6 +92,7 @@ public class SetPlayerState : MonoBehaviour
                         //set player state to candle state
                         currentState = PlayerState.Candle;
                         anim.SetInteger("Equipment", (int)currentState);
+                        break;
                     }
                 }
 
