@@ -37,6 +37,10 @@ public class LightSwitch : MonoBehaviour
     //max light intensity
     private float maxIntensity;
 
+    private AudioSource audioSource;
+
+    private GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +50,19 @@ public class LightSwitch : MonoBehaviour
 
         //get max intensity
         maxIntensity = objectlight.intensity;
+
+        audioSource = GetComponent<AudioSource>();
+
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (audioSource != null && player.gameObject.transform.position.y > 4.2f)
+            audioSource.volume = 0;
+        else if (audioSource != null)
+            audioSource.volume = 1;
         if(lightOn == true)
         {
             //count down until the light turns off
@@ -71,6 +83,8 @@ public class LightSwitch : MonoBehaviour
                 }
                 else
                 {
+                    if(audioSource != null)
+                        audioSource.Play();
                     //change light bool and reset light tick
                     lightOn = false;
 
@@ -120,6 +134,8 @@ public class LightSwitch : MonoBehaviour
                 }
                 else
                 {
+                    if(audioSource != null)
+                        audioSource.Play();
                     //reset light
                     lightOn = true;
                     objectsChanged = false;

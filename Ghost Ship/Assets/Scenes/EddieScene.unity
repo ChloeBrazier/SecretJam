@@ -353,6 +353,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2896309093625747612, guid: cefd478f4706bd24f91f725d221af237,
+        type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c093dc4b42dc55a479acf89bee341ccd, type: 3}
+    - target: {fileID: 2896309093625747612, guid: cefd478f4706bd24f91f725d221af237,
+        type: 3}
+      propertyPath: walkSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bcb86a7a15063b244b322508d230307b, type: 3}
+    - target: {fileID: 2896309093625747612, guid: cefd478f4706bd24f91f725d221af237,
+        type: 3}
+      propertyPath: lanternSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 436639d2d04cc824ebb28b1820bb7ec6, type: 3}
     - target: {fileID: 2896309093625747614, guid: cefd478f4706bd24f91f725d221af237,
         type: 3}
       propertyPath: m_Name
